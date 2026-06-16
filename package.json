@@ -1,0 +1,60 @@
+{
+  "name": "site-mirror-electron",
+  "version": "1.0.0",
+  "description": "Desktop SPA-aware website mirroring tool built with Electron, React, TypeScript, and Playwright.",
+  "author": "Site Mirror",
+  "license": "MIT",
+  "main": "out/main/main.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc --noEmit && electron-vite build",
+    "dist": "npm run build && electron-builder",
+    "postinstall": "cross-env PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium"
+  },
+  "dependencies": {
+    "cheerio": "^1.1.2",
+    "lucide-react": "^0.468.0",
+    "playwright": "^1.56.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "replaywebpage": "2.4.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "cross-env": "^10.1.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.21"
+  },
+  "build": {
+    "appId": "com.example.sitemirror",
+    "productName": "Site Mirror",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/playwright-core/.local-browsers/**",
+      "node_modules/playwright/node_modules/playwright-core/.local-browsers/**",
+      "node_modules/playwright/.local-browsers/**",
+      "node_modules/replaywebpage/ui.js",
+      "node_modules/replaywebpage/sw.js"
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
