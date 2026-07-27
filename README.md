@@ -1,6 +1,6 @@
 # Site Mirror
 
-https://imgoldenwind.github.io/personalsite/assets/SiteMirror-CSlrDywK.png
+![Главный экран](https://imgoldenwind.github.io/personalsite/assets/SiteMirror-CSlrDywK.png)
 
 Локальный desktop-инструмент для зеркалирования сайтов с поддержкой SPA, динамического рендеринга и WACZ-архивов.
 
